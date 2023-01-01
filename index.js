@@ -5,18 +5,12 @@ const WelcomeScreen = () => {
     console.log(gradient('cyan', 'pink').multiline(figlet.textSync(`LastCode \n\ CLI Word Count !\n`), { interpolation: 'hsv' }) + '\n');
 };
 WelcomeScreen();
-
-interface ansType{
-    sentence:string
-}
-
-const answer: ansType = await inquirer.prompt([
+const answer = await inquirer.prompt([
     {
-        type:"input",
+        type: "input",
         name: "sentence",
-        message:"Enter your sentence to count the word: "
+        message: "Enter your sentence to count the word: "
     }
-])
-
-const word = answer.sentence.trim().split(" ")
-console.log(`Your Sentence Word Count is ${word.length}`)
+]);
+const word = answer.sentence.trim().split(" ");
+console.log(`Your Sentence Word Count is ${word.length}`);
